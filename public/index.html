@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Template</title>
+	</head>
+	<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+	<nav>
+	<header>Aubergine Pasta</header>
+	<div>
+	<span><a href="/work">Work</a></span>
+	<span><a href="/about"></a>About</a></span>
+	<span><a href="/contact"></a>Contact</a></span>
+</div>
+	</nav>
+	<main class="content">
+		<!-- Gallery component  -->
+		<!-- Work component -->
+		<div id="#123" class="displayCase">
+			<!-- Main image component -->
+			<div class="displayContent">
+			<div class="image">
+				<img class="artwork" src="./stock images/caleb-smith-eMwef8yRtA4-unsplash.jpg" />
+			</div>
+			<!-- Caption, Description, Dimensions -->
+			<div class="caption">
+				<span>Tempest</span>
+				<span>2022</span>
+				<span>18 x 24"</span>
+					<div class="thumbnails">
+						<span><img src="./stock images/caleb-smith-eMwef8yRtA4-unsplash.jpg" /></span>
+						<span><img src="./stock images/caleb-smith-eMwef8yRtA4-unsplash.jpg" /></span>
+						<span><img src="./stock images/caleb-smith-eMwef8yRtA4-unsplash.jpg" /></span>
+						<span><img src="./stock images/caleb-smith-eMwef8yRtA4-unsplash.jpg" /></span>
+					</div>
+			</div>
+				</div>
+			<!-- Additional Images Component -->
+				</div>
+			</div>
+		</div>
+
+
+					<!-- Work component -->
+					<div id="#123" class="displayCase">
+						<!-- Main image component -->
+						<div class="displayContent">
+						<div class="image">
+							<img class="artwork" src="./stock images/soekarno-omar-77VlqRhD4xY-unsplash.jpg" />
+						</div>
+						<!-- Caption, Description, Dimensions -->
+						<div class="caption">
+							<span>Tempest</span>
+							<span>2022</span>
+							<span>18 x 24"</span>
+								<div class="thumbnails">
+									<span><img src="./stock images/soekarno-omar-77VlqRhD4xY-unsplash.jpg" /></span>
+									<span><img src="./stock images/soekarno-omar-77VlqRhD4xY-unsplash.jpg" /></span>
+									<span><img src="./stock images/soekarno-omar-77VlqRhD4xY-unsplash.jpg" /></span>
+									<span><img src="./stock images/soekarno-omar-77VlqRhD4xY-unsplash.jpg" /></span>
+								</div>
+								</div>
+						</div>
+</div>
+
+					<!-- Work component -->
+					<div id="#123" class="displayCase">
+						<!-- Main image component -->
+						<div class="displayContent">
+						<div class="image">
+							<img class="artwork" src="./stock images/xhulio-selenica-t9WDKWCesbU-unsplash.jpg" />
+						</div>
+						<!-- Caption, Description, Dimensions -->
+						<div class="caption">
+							<span>Tempest</span>
+							<span>2022</span>
+							<span>oil and acrylic mounted on board</span>
+							<span>18 x 24"</span>
+								<div class="thumbnails">
+									<span><img src="./stock images/xhulio-selenica-t9WDKWCesbU-unsplash.jpg" /></span>
+									<span><img src="./stock images/xhulio-selenica-t9WDKWCesbU-unsplash.jpg" /></span>
+									<span><img src="./stock images/xhulio-selenica-t9WDKWCesbU-unsplash.jpg" /></span>
+									<span><img src="./stock images/xhulio-selenica-t9WDKWCesbU-unsplash.jpg" /></span>
+								</div>
+								</div>
+						</div>
+</div>
+
+
+
+
+		<!-- Work component -->
+		<div id="#123" class="displayCase">
+			<!-- Main image component -->
+			<div class="displayContent">
+			<div class="image">
+				<img class="artwork" src="./stock images/shifaaz-shamoon-okVXy9tG3KY-unsplash.jpg" />
+			</div>
+			<!-- Caption, Description, Dimensions -->
+			<div class="caption">
+				<span>Tempest</span>
+				<span>2022</span>
+				<span>18 x 24"</span>
+					<div class="thumbnails">
+						<span><img src="./stock images/shifaaz-shamoon-okVXy9tG3KY-unsplash.jpg" /></span>
+						<span><img src="./stock images/shifaaz-shamoon-okVXy9tG3KY-unsplash.jpg" /></span>
+						<span><img src="./stock images/shifaaz-shamoon-okVXy9tG3KY-unsplash.jpg" /></span>
+						<span><img src="./stock images/shifaaz-shamoon-okVXy9tG3KY-unsplash.jpg" /></span>
+					</div>
+					</div>
+
+					<div class="lightbox hidden">
+						<div class="lightboxHeader">
+							<img id="closebtn" src="close.png" />
+						</div>
+						<div class="lightboxContent">
+					<div>
+				<img src="./stock images/shifaaz-shamoon-okVXy9tG3KY-unsplash.jpg" />
+					</div>
+					<div class="lightboxCaption">
+						<span>Tempest</span>
+						<span>2022</span>
+						<span>18 x 24"</span>
+						<span>Description</span>
+				</div>
+			</div>
+</div>
+
+</main>
+	<script>
+
+// Need to insert/remove modal html with correct variables
+	let closebtn;
+
+	const main = document.getElementsByClassName("content");
+
+document.addEventListener("DOMContentLoaded", function(){
+	[...document.querySelectorAll('.displayCase')].forEach(function(item) {
+		item.onclick = function () {
+			item.querySelector(".lightbox").classList.toggle("hidden");
+			closebtn = document.querySelectorAll("#closebtn")[0];
+			closebtn.onclick = function () {
+			document.getElementById("lightbox").remove()
+			}
+
+		};
+   });
+
+})
+
+
+
+	</script>
+</body>
+</html>

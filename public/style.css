@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    font-size: 12px;
+    line-height: 18px;
+}
+
+ul li {
+    list-style: none;
+    margin: none;
+    padding: none;
+}
+
+*:focus {
+    outline: none;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: row;
+}
+
+.fixed {
+    position: fixed;
+}
+
+nav {
+    width: 200px;
+    padding: 2rem;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-direction: column;
+    position: fixed;
+}
+
+nav header {
+    font-size: 20px;
+ }
+
+nav div {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    margin-top: 8rem;
+    gap: .5rem;
+}
+
+.content {
+    width: 100%;
+    padding: 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.displayCase {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 550px;
+    width: 90%;
+    margin-bottom: 8rem;
+}
+
+.displayContent {
+    width: 100%;
+    max-height: 550px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.displayContent .image {
+    width: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.displayContent .image img {
+    max-width: 700px;
+    max-height: 550px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.displayContent .caption {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+    width: 100px;
+}
+
+.thumbnails {
+    width: 100%;
+    display: flex;
+}
+
+.thumbnails span {
+    margin: 2px;
+    height: 30px;
+    width: 30px;
+    object-fit: cover;
+}
+
+.thumbnails span img {
+    height: 30px;
+    width: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-style: solid;
+    border-color: transparent;
+}
+
+.thumbnails span img:hover {
+    border: 1px #333 solid;
+}
+
+.lightbox {
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0; 
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.lightboxHeader {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 2rem 4rem;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.lightboxHeader img {
+    cursor: pointer;
+    width: auto;
+    height: 18px;
+    max-width: 18px;
+}
+
+.lightboxContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-height: 600px;
+    object-fit: contain;
+}
+
+.lightboxContent div img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 600px;
+    max-width: 800px;
+}
+
+.lightboxCaption {
+    display: flex;
+    flex-direction: column;
+    margin: 6rem;
+}
+
+.visible {
+    display: block;
+}
+.hidden {
+    display: none;
+}
