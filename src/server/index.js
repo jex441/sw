@@ -105,7 +105,7 @@ app.get("/:username", (req, res) => {
 	let data = {};
 	if (req.params.username === "jeffblanco") {
 		data = {
-			username: "jeff blanco",
+			username: "Jeff Blanco",
 			type: "painter",
 			works: [
 				{
@@ -348,7 +348,7 @@ app.get("/:username", (req, res) => {
 				<img id="closebtn" src="close.png" />
 			</div>
 			<div class="lightboxContent">
-				<div>
+				<div class="lightBoxMainImg">
 					<img class="mainImg" src="${work.mainImgUrl}" />
 				</div>
 				<div class="lightboxCaption">
@@ -360,9 +360,11 @@ app.get("/:username", (req, res) => {
 					</span>
 					<span>${work.description}</span>
 					<div class="thumbnails">
-						${work.thumbnails.map((thumb) => {
-							return `<span><img class="thumbnail" src="${thumb.url}" /></span>`;
-						})}
+						${work.thumbnails
+							.map((thumb) => {
+								return `<span><img class="thumbnail" src="${thumb.url}" /></span>`;
+							})
+							.join("")}
 					</div>
 				</div>
 			</div>
@@ -371,12 +373,11 @@ app.get("/:username", (req, res) => {
 	`;
 	};
 
-	const works = data.works.map((work) => workComponent(work));
+	const works =
+		data.works && data.works.map((work) => workComponent(work)).join("");
 
 	const script = `
 	<script>
-
-	// Need to insert/remove modal html with correct variables
 		let closebtn;
 	
 		const main = document.getElementsByClassName("content");
@@ -385,10 +386,17 @@ app.get("/:username", (req, res) => {
 		[...document.querySelectorAll('.displayCase')].forEach(function(item) {
 			closebtn = item.querySelector("#closebtn");
 			const mainImg = item.querySelector(".artwork");
-			const lightboxMainImg = item.querySelector(".mainImg");
-			console.log('=>',lightboxMainImg)
 			const mainImgSrc = mainImg.src;
-			const lightbox =item.querySelector(".lightbox");
+
+			const mainMaxHeight = mainImg.height;
+			const mainMaxWidth = mainImg.width;
+
+			const lightbox = item.querySelector(".lightbox");
+			const lightboxMainImg = item.querySelector(".mainImg");
+
+			const lightboxMainImgMaxHeight = lightboxMainImg.height;
+			const lightboxMainImgMaxWidth = lightboxMainImg.width;
+
 
 			mainImg.onclick = function () {
 				lightbox.classList.toggle("hidden");
@@ -397,6 +405,11 @@ app.get("/:username", (req, res) => {
 			closebtn.onclick = function() {
 				lightbox.classList.toggle("hidden")
 			};
+
+			mainImg.parentElement.style.height = mainMaxHeight + "px";
+			mainImg.style.maxHeight = mainMaxHeight + "px";
+
+			lightboxMainImg.style.height = lightboxMainImgMaxHeight + "px";
 
 			item.querySelectorAll(".thumbnail").forEach(function(thumb) {
 				thumb.onmouseover = function () {
@@ -432,13 +445,15 @@ app.get("/:username", (req, res) => {
         </head>
         <body>
 		<nav>
-		<header>${data.username}</header>
-		<div>
-			<span><a href="/work">Work</a></span>
-			<span><a href="/about"></a>About</a></span>
-			<span><a href="/contact"></a>Contact</a></span>
-		</div>
-	</nav>
+			<div class="navWrapper">
+				<header>${data.username}</header>
+				<div class="links">
+					<span><a href="/work">Work</a></span>
+					<span><a href="/about"></a>About</a></span>
+					<span><a href="/contact"></a>Contact</a></span>
+				</div>
+			</div>
+		</nav>
             <main class="content">
 			${works}
 			</main>
